@@ -7,6 +7,7 @@ import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { config } from 'src/app/config';
 import { EmailService } from 'src/app/Service/email.service';
+import { faBaby } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-dashboard',
@@ -21,6 +22,7 @@ export class DashboardComponent implements OnInit {
   submitted: boolean = false;
   showDashboard = false;
   showBlank = true;
+  baby = faBaby;
   constructor(
     private scroller: ViewportScroller,
     private router: Router,
@@ -79,17 +81,53 @@ export class DashboardComponent implements OnInit {
   }
 
   emailSender() {
+    let myDate = new Date();
+    let yr = myDate.getFullYear();
     this.spinner = true;
-    let body: any = `Dear ${this.contactForm.value.recipientName}, 
-    <br><br> We are excited to have you on the Lemon Exchange waitlist and we can't wait to have you experience the delight of using our platform to buy, sell or store your cryptocurrencies with ease. <br> 
-    Share the <a href="https://lemonexchange.africa">Link</a> to get your friends on the waitlist <br> Best Regards <br>  
+    let body: any = `<div>
+    <img  src=https://res.cloudinary.com/dkjje7jd8/image/upload/v1646642485/lemon-exchange-logo-b_1_cz7pip-media_lib_thumb_tji1wq.png />
+    </div>
+    <br><br>
+    Dear ${this.contactForm.value.recipientName}, 
+    <br><br> We are excited to have you on the Lemon Exchange waitlist and we can't wait to have you experience the delight of using our platform to buy, sell or store your cryptocurrencies with ease.<br><br> 
+    Share the <a href="https://lemonexchange.africa">Link</a> to get your friends on the waitlist  <br><br> Best Regards <br> <br>  
+    The Team at Lemon Exchange
     <br> <br>
-    <img src=https://res.cloudinary.com/dkjje7jd8/image/upload/v1646421952/1_tffprv-media_lib_thumb_f8bxl2.png />`;
-    let templateHtml = `Dear ${this.contactForm.value.recipientName}, 
-    <br><br> We are excited to have you on the Lemon Exchange waitlist and we can't wait to have you experience the delight of using our platform to buy, sell or store your cryptocurrencies with ease. <br> 
-    Share the <a href="https://lemonexchange.africa">Link</a> to get your friends on the waitlist <br> Best Regards <br>  
+    <div >
+    <img style="background-color:#ffc100" src=https://res.cloudinary.com/dkjje7jd8/image/upload/v1646641171/new_logo_wdzvtt-media_lib_thumb_tgohfl.png />
+    </div>
+    <br>
+    <p>&copy; ${yr} Lḕmoni Africa. All Rights Reserved.</p>
+
+    <div style="display:inline">
+    <a href="https://twitter.com/lemoniafrica?s=21"> <img src=https://res.cloudinary.com/dkjje7jd8/image/upload/v1646598733/twitter_zpx2ao.png /></a>
+    <a href="https://instagram.com/lemoniafrica?utm_medium=copy_link"> <img src=https://res.cloudinary.com/dkjje7jd8/image/upload/v1646598734/instagram_ckbojp.png /></a>
+    <a href="https://www.linkedin.com/company/lemon-exchange"> <img src=https://res.cloudinary.com/dkjje7jd8/image/upload/v1646598733/linkedin_j4h5ie.png /></a>
+    </div>
+    `;
+    let templateHtml = `
+    <div>
+    <img  src=https://res.cloudinary.com/dkjje7jd8/image/upload/v1646642485/lemon-exchange-logo-b_1_cz7pip-media_lib_thumb_tji1wq.png />
+    </div>
+    <br><br>
+    Dear ${this.contactForm.value.recipientName}, 
+    <br><br> We are excited to have you on the Lemon Exchange waitlist and we can't wait to have you experience the delight of using our platform to buy, sell or store your cryptocurrencies with ease.<br><br> 
+    Share the <a href="https://lemonexchange.africa">Link</a> to get your friends on the waitlist  <br><br> Best Regards <br> <br>  
+    The Team at Lemon Exchange
     <br> <br>
-    <img src=https://res.cloudinary.com/dkjje7jd8/image/upload/v1646421952/1_tffprv-media_lib_thumb_f8bxl2.png />`;
+    <div >
+    <img style="background-color:#ffc100" src=https://res.cloudinary.com/dkjje7jd8/image/upload/v1646641171/new_logo_wdzvtt-media_lib_thumb_tgohfl.png />
+    </div>
+    <br>
+    <p>&copy; ${yr} Lḕmoni Africa. All Rights Reserved.</p>
+
+    <div style="display:inline">
+    <a href="https://twitter.com/lemoniafrica?s=21"> <img src=https://res.cloudinary.com/dkjje7jd8/image/upload/v1646598733/twitter_zpx2ao.png /></a>
+    <a href="https://instagram.com/lemoniafrica?utm_medium=copy_link"> <img src=https://res.cloudinary.com/dkjje7jd8/image/upload/v1646598734/instagram_ckbojp.png /></a>
+    <a href="https://www.linkedin.com/company/lemon-exchange"> <img src=https://res.cloudinary.com/dkjje7jd8/image/upload/v1646598733/linkedin_j4h5ie.png /></a>
+    </div>
+
+    `;
     this._emailService
       .sendEmail(
         config.senderName,

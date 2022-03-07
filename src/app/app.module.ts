@@ -45,6 +45,7 @@ import { UseErrorInterceptor } from './authentication/service/error.interceptor'
 import { DashboardComponent } from './Component/dashboard/dashboard.component';
 
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 registerLocaleData(en);
 
@@ -98,6 +99,7 @@ registerLocaleData(en);
     NzTableModule,
     NzSpinModule,
     NgxUiLoaderModule,
+    FontAwesomeModule,
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US },

@@ -1,8 +1,8 @@
 export const config = {
-  senderName: 'Lemon Exchange',
+  senderName: 'Lemoni Africa',
   senderEmail: 'info@lemonexchange.africa',
   //   mailto:info@scenicsentosa.net
-  subject: 'Wait List Onboarding',
+  subject: 'Welcome to Lemoni Africa App Waitlist',
   // body: "Dear Test, <br><br> Your application have been submitted successfully. We will review and get back to you. <br> Thank you.",
   // htmlTemplate: "Dear Test, <br><br> Your loan application have been submitted successfully. We will review and get back to you. <br> Thank you.",
   client: 'Lex',
