@@ -92,21 +92,21 @@
     </div> -->
       <!-- END PRELOADER -->
       <!-- adcf1a -->
+
+      <!-- color #adcf1a #778f0d" 1. 5f8901 2. 6a9a01 3. 7cb200 4. 6b9a00 -->
       <!-- START NAVBAR -->
       <div
-        style="background-color: #adcf1a"
+        style="background-color: #6a9a01"
         id="navigation"
         class="fixed-top navbar-light bg-faded site-navigation menu_dropdown"
       >
+        <!-- "/assets/12.png" -->
         <div class="container">
           <div class="row">
             <div class="col-lg-3 col-md-3 col-sm-4">
               <div class="site-logo">
                 <a routerLink="/" class="navbar-logo"
-                  ><img
-                    style="background-color: #adcf1a"
-                    src="/assets/12.png"
-                    alt=""
+                  ><img src="/assets/lemoniafrica-l.png" alt=""
                 /></a>
               </div>
             </div>
@@ -149,7 +149,7 @@
           <div class="row">
             <div class="col-lg-7 col-sm-12 col-xs-12">
               <div class="hero-text">
-                <h2 style="color: black">Lḕmoni Africa</h2>
+                <!-- <h2 style="color: black">Lḕmoni Africa</h2> -->
                 <p style="color: black">
                   <!-- COLLABORATORS Let’s talk about the future of Crypto Exchange
                 community@lemonexchange.africa -->
@@ -222,7 +222,7 @@
       <!-- END LIVE MARKET -->
 
       <!-- START ABOUT -->
-
+      <br /><br /><br />
       <!-- START WHY CHOOSE US -->
       <section id="about" class="why_choose_us section-padding">
         <div class="container">
@@ -393,9 +393,10 @@
                       <em
                         class="text-danger valiFontSizes"
                         *ngIf="
-                          contactForm.get('recipientName')?.errors &&
-                          (contactForm.get('recipientName')?.touched ||
-                            contactForm.get('recipientName')?.dirty)
+                          recipientNameError ||
+                          (contactForm.get('recipientName')?.errors &&
+                            (contactForm.get('recipientName')?.touched ||
+                              contactForm.get('recipientName')?.dirty))
                         "
                       >
                         <em
@@ -419,9 +420,10 @@
                       <em
                         class="text-danger valiFontSizes"
                         *ngIf="
-                          contactForm.get('recipientPhoneNumber')?.errors &&
-                          (contactForm.get('recipientPhoneNumber')?.touched ||
-                            contactForm.get('recipientPhoneNumber')?.dirty)
+                          phoneNumberError ||
+                          (contactForm.get('recipientPhoneNumber')?.errors &&
+                            (contactForm.get('recipientPhoneNumber')?.touched ||
+                              contactForm.get('recipientPhoneNumber')?.dirty))
                         "
                       >
                         <em
@@ -460,9 +462,10 @@
                       <em
                         class="text-danger valiFontSizes"
                         *ngIf="
-                          contactForm.get('recipientEmail')?.errors &&
-                          (contactForm.get('recipientEmail')?.touched ||
-                            contactForm.get('recipientEmail')?.dirty)
+                          emailError ||
+                          (contactForm.get('recipientEmail')?.errors &&
+                            (contactForm.get('recipientEmail')?.touched ||
+                              contactForm.get('recipientEmail')?.dirty))
                         "
                       >
                         <em

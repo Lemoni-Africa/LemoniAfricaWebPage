@@ -23,6 +23,9 @@ export class DashboardComponent implements OnInit {
   showDashboard = false;
   showBlank = true;
   baby = faBaby;
+  emailError: boolean = false;
+  recipientNameError: boolean = false;
+  phoneNumberError: boolean = false;
   constructor(
     private scroller: ViewportScroller,
     private router: Router,
@@ -81,10 +84,26 @@ export class DashboardComponent implements OnInit {
   }
 
   emailSender() {
-    let myDate = new Date();
-    let yr = myDate.getFullYear();
-    this.spinner = true;
-    let body: any = `<div>
+    if (
+      this.contactForm.value.recipientEmail == '' ||
+      this.contactForm.value.recipientPhoneNumber == '' ||
+      this.contactForm.value.recipientName == ''
+    ) {
+      this.emailError = true;
+      this.phoneNumberError = true;
+      this.recipientNameError = true;
+    }
+    if (this.contactForm.value.recipientEmail == '') {
+      this.emailError = true;
+    } else if (this.contactForm.value.recipientPhoneNumber == '') {
+      this.phoneNumberError = true;
+    } else if (this.contactForm.value.recipientName == '') {
+      this.recipientNameError = true;
+    } else {
+      let myDate = new Date();
+      let yr = myDate.getFullYear();
+      this.spinner = true;
+      let body: any = `<div>
     <img  src=https://res.cloudinary.com/dkjje7jd8/image/upload/v1646642485/lemon-exchange-logo-b_1_cz7pip-media_lib_thumb_tji1wq.png />
     </div>
     <br><br>
@@ -105,7 +124,7 @@ export class DashboardComponent implements OnInit {
     <a href="https://www.linkedin.com/company/lemon-exchange"> <img src=https://res.cloudinary.com/dkjje7jd8/image/upload/v1646598733/linkedin_j4h5ie.png /></a>
     </div>
     `;
-    let templateHtml = `
+      let templateHtml = `
     <div>
     <img  src=https://res.cloudinary.com/dkjje7jd8/image/upload/v1646642485/lemon-exchange-logo-b_1_cz7pip-media_lib_thumb_tji1wq.png />
     </div>
@@ -128,42 +147,43 @@ export class DashboardComponent implements OnInit {
     </div>
 
     `;
-    this._emailService
-      .sendEmail(
-        config.senderName,
-        config.senderEmail,
-        this.contactForm.value.recipientName,
-        this.contactForm.value.recipientEmail,
-        this.contactForm.value.recipientPhoneNumber,
-        config.subject,
-        body,
-        templateHtml,
-        config.client,
-        config.bcc
-      )
-      .subscribe(
-        (res: any) => {
-          if (res.isSuccessful) {
-            this.spinner = false;
-            this.contactForm.reset();
-            this.notification.success('Email', 'Email Sent!!!', {
-              nzPlacement: 'bottomRight',
-            });
-          }
-          if (!res.isSuccessful) {
+      this._emailService
+        .sendEmail(
+          config.senderName,
+          config.senderEmail,
+          this.contactForm.value.recipientName,
+          this.contactForm.value.recipientEmail,
+          this.contactForm.value.recipientPhoneNumber,
+          config.subject,
+          body,
+          templateHtml,
+          config.client,
+          config.bcc
+        )
+        .subscribe(
+          (res: any) => {
+            if (res.isSuccessful) {
+              this.spinner = false;
+              this.contactForm.reset();
+              this.notification.success('Email', 'Email Sent!!!', {
+                nzPlacement: 'bottomRight',
+              });
+            }
+            if (!res.isSuccessful) {
+              this.spinner = false;
+              this.notification.error('Email', 'Please try again!!!', {
+                nzPlacement: 'bottomRight',
+              });
+            }
+          },
+          (error) => {
             this.spinner = false;
             this.notification.error('Email', 'Please try again!!!', {
               nzPlacement: 'bottomRight',
             });
           }
-        },
-        (error) => {
-          this.spinner = false;
-          this.notification.error('Email', 'Please try again!!!', {
-            nzPlacement: 'bottomRight',
-          });
-        }
-      );
+        );
+    }
   }
 
   isFieldValid(field: any) {
