@@ -450,7 +450,7 @@
                       </em>
                     </div>
 
-                    <div class="form-group col-md-12">
+                    <div class="form-group col-md-6">
                       <input
                         type="text"
                         formControlName="recipientEmail"
@@ -480,6 +480,23 @@
                           "
                           >Email is invalid</em
                         >
+                      </em>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <input
+                        type="text"
+                        [(ngModel)]="referalCode"
+                        formControlName="referredBy"
+                        name="subject"
+                        class="form-control"
+                        placeholder="Referral Code"
+                        required="required"
+                      />
+                      <em
+                        class="text-danger valiFontSizes"
+                        *ngIf="referalCodeError"
+                      >
+                        <em *ngIf="referalCodeError">InValid Referal Code</em>
                       </em>
                     </div>
                     <!-- <div class="form-group col-md-12">
