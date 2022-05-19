@@ -41,16 +41,25 @@ import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { NzRadioModule } from 'ng-zorro-antd/radio';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
+import { NzCarouselModule } from 'ng-zorro-antd/carousel';
 import { UseErrorInterceptor } from './authentication/service/error.interceptor';
 import { DashboardComponent } from './Component/dashboard/dashboard.component';
 
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AppLayoutComponent } from './Component/app-layout/app-layout.component';
+import { CareerComponent } from './Component/career/career.component';
 
 registerLocaleData(en);
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, DashboardComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    DashboardComponent,
+    AppLayoutComponent,
+    CareerComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -100,6 +109,7 @@ registerLocaleData(en);
     NzSpinModule,
     NgxUiLoaderModule,
     FontAwesomeModule,
+    NzCarouselModule,
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US },

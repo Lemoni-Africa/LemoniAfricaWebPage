@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta
+      name="description"
+      content="Cryptohub - Cryptocurrency HTML Template"
+    />
+    <meta
+      name="keywords"
+      content="bitcoin, bitcoin landing, blockchain, cryptocurrency, Cryptocurrency advisor, ICO Agency, ICO Consulting, ico landing, ico template, ico token, ico website"
+    />
+    <!-- SITE TITLE -->
+    <title>Cryptohub - Cryptocurrency HTML Template</title>
+    <!-- Latest Bootstrap min CSS -->
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css" />
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="/assets/fonts/font-awesome.min.css" />
+    <link rel="stylesheet" href="/assets/fonts/themify-icons.css" />
+    <!--- owl carousel Css-->
+    <link rel="stylesheet" href="/assets/owlcarousel/css/owl.carousel.css" />
+    <link rel="stylesheet" href="/assets/owlcarousel/css/owl.theme.css" />
+    <!--slicknav Css-->
+    <link rel="stylesheet" href="/assets/css/slicknav.css" />
+    <!-- MAGNIFIC CSS -->
+    <link rel="stylesheet" href="/assets/css/magnific-popup.css" />
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="/assets/css/animate.css" />
+    <!-- Popup CSS -->
+    <link rel="stylesheet" href="/assets/css/popup.css" />
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/responsive.css" />
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <!-- [text]="'Please wait....'" -->
+  <ng-container *ngIf="showBlank">
+    <ngx-ui-loader
+      [hasProgressBar]="false"
+      [loaderId]="'loader-01'"
+      [fgsColor]="'#adcf1a'"
+      [fgsType]="'square-loader'"
+      [fgsSize]="0"
+      [textColor]="'#FFFFFF'"
+      [textPosition]="'center-center'"
+      [logoPosition]="'center-center'"
+      [logoSize]="100"
+      [logoUrl]="'/assets/0004.png'"
+    ></ngx-ui-loader>
+  </ng-container>
+  <ng-container *ngIf="showDashboard">
+    <!-- <ngx-ui-loader
+      [hasProgressBar]="false"
+      [loaderId]="'loader-01'"
+      [fgsColor]="'#adcf1a'"
+      [fgsType]="'square-loader'"
+      [fgsSize]="0"
+      [textColor]="'#FFFFFF'"
+      [textPosition]="'center-center'"
+      [logoPosition]="'center-center'"
+      [logoSize]="100"
+      [logoUrl]="'/assets/favicon1.png'"
+    ></ngx-ui-loader> -->
+    <body data-spy="scroll" data-offset="80">
+      <!-- START PRELOADER -->
+      <!-- <div class="preloader">
+      <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+      </div>
+    </div> -->
+      <!-- END PRELOADER -->
+      <!-- adcf1a -->
+
+      <!-- color #adcf1a #778f0d" 1. 5f8901 2. 6a9a01 3. 7cb200 4. 6b9a00 -->
+      <!-- START NAVBAR -->
+      <div
+        style="background-color: #6a9a01; height: 110px"
+        id="navigation"
+        class="fixed-top navbar-light bg-faded site-navigation menu_dropdown"
+      >
+        <!-- "/assets/12.png" -->
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-4">
+              <div class="site-logo">
+                <a routerLink="/" class="navbar-logo"
+                  ><img
+                    style="width: 120px; height: 120px"
+                    src="/assets/0004.png"
+                    alt=""
+                /></a>
+              </div>
+            </div>
+            <!--- END Col -->
+            <div style="padding-top: 30px" class="col-lg-9 col-md-9 col-sm-8">
+              <div class="header_right">
+                <nav id="main-menu" class="ml-auto">
+                  <ul>
+                    <li>
+                      <a (click)="gotoHome()"><b>Home</b></a>
+                      <!-- <i class="fa"></i> -->
+                      <!-- <ul class="sub-menu">
+                      <li><a href="index.html">Style One</a></li>
+                      <li><a href="index_two.html">Style Two</a></li>
+                      <li><a href="index_three.html">Style Three</a></li>
+                    </ul> -->
+                    </li>
+                    <li>
+                      <a class="arrow-btn"><b>Products</b> </a
+                      ><i class="fa"></i>
+                      <ul class="sub-menu">
+                        <li>
+                          <a
+                            target="_blank"
+                            href="https://lemonex.lemoniafrica.com/home"
+                            >LemonEx</a
+                          >
+                        </li>
+                        <li>
+                          <a>NFT Market Place</a>
+                        </li>
+                        <li>
+                          <a>LemoniAfrica Academy</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a (click)="goToDynamic('about')"><b>About</b></a>
+                    </li>
+                    <li>
+                      <a (click)="goToDynamic('contact')"><b>Join Us</b></a>
+                    </li>
+                    <li>
+                      <a class="arrow-btn"><b>Company</b> </a><i class="fa"></i>
+                      <ul class="sub-menu">
+                        <!-- <li><a (click)="gotoAboutUs()">About Us</a></li> -->
+                        <li>
+                          <a (click)="gotoCareer()">Careers</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </nav>
+                <div id="mobile_menu"></div>
+              </div>
+            </div>
+            <!--- END Col -->
+          </div>
+          <!--- END ROW -->
+        </div>
+        <!--- END CONTAINER -->
+      </div>
+      <!-- END NAVBAR -->
+      <router-outlet></router-outlet>
+      <!-- ADDRESS -->
+
+      <!-- END ADDRESS -->
+      <!-- START FOOTER -->
+      <div class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 col-sm-12 col-xs-12 text-center">
+              <div class="footer_logo">
+                <img
+                  style="width: 120px; height: 120px"
+                  src="/assets/0004.png"
+                  alt=""
+                />
+              </div>
+              <!-- <div class="language_selection">
+                <select aria-label="Language selector" class="languageselect">
+                  <option selected="" value="en">English</option>
+                  <option value="de">Deutsch</option>
+                  <option value="es">Español - España</option>
+                  <option value="es-LA">Español - América Latina</option>
+                  <option value="fr">Français - France</option>
+                  <option value="id">Bahasa Indonesia</option>
+                  <option value="it">Italiano</option>
+                  <option value="ko">한국어</option>
+                  <option value="pl">Polski</option>
+                  <option value="pt">Português - Brasil</option>
+                  <option value="pt-PT">Português - Portugal</option>
+                  <option value="tr">Türkçe</option>
+                </select>
+              </div> -->
+              <div class="copyright">
+                <p>&copy; {{ year }} Lḕmoni Africa. All Rights Reserved.</p>
+              </div>
+              <div class="social_profile">
+                <ul>
+                  <li>
+                    <a
+                      href="https://www.facebook.com/LemoniAfrica/"
+                      target="_blank"
+                      class="f_facebook"
+                      ><i class="fa fa-facebook" title="Facebook"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://twitter.com/lemoniafrica?s=21"
+                      target="_blank"
+                      class="f_twitter"
+                      ><i class="fa fa-twitter" title="Twitter"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://instagram.com/lemoniafrica?utm_medium=copy_link"
+                      target="_blank"
+                      class="f_instagram"
+                      ><i class="fa fa-instagram" title="Instagram"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.linkedin.com/company/lemon-exchange"
+                      target="_blank"
+                      class="f_linkedin"
+                      ><i class="fa fa-linkedin" title="LinkedIn"></i
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!--- END COL -->
+          </div>
+          <!--- END ROW -->
+        </div>
+        <!--- END CONTAINER -->
+      </div>
+      <!-- END FOOTER -->
+
+      <!-- Latest jQuery -->
+      <script src="/assets/js/jquery-1.12.4.min.js"></script>
+      <!-- Latest compiled and minified Bootstrap -->
+      <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+      <!-- modernizer JS -->
+      <script src="/assets/js/modernizr-2.8.3.min.js"></script>
+      <!-- owl-carousel min js  -->
+      <script src="/assets/owlcarousel/js/owl.carousel.min.js"></script>
+      <!-- jquery counterup -->
+      <script src="/assets/js/jquery.counterup.min.js"></script>
+      <script src="/assets/js/countdown.js"></script>
+      <!-- jquery nav -->
+      <script src="/assets/js/jquery.nav.js"></script>
+      <!-- jquery.slicknav -->
+      <script src="/assets/js/jquery.slicknav.js"></script>
+      <!-- jquery.smooth-scroll -->
+      <script src="/assets/js/smooth-scroll.js"></script>
+      <!-- magnific-popup js -->
+      <script src="/assets/js/jquery.magnific-popup.min.js"></script>
+      <!-- scrolltopcontrol js -->
+      <script src="/assets/js/scrolltopcontrol.js"></script>
+      <!-- WOW - Reveal Animations When You Scroll -->
+      <script src="/assets/js/wow.min.js"></script>
+      <!-- jquery leanModal min js -->
+      <script src="/assets/js/jquery.leanModal.min.js"></script>
+      <!-- login js -->
+      <script src="/assets/js/login.js"></script>
+      <!-- scripts js -->
+      <script src="/assets/js/scripts.js"></script>
+    </body>
+  </ng-container>
+</html>
