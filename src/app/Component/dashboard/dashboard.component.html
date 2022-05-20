@@ -63,66 +63,17 @@
 <!-- END  ABOUT -->
 
 <!-- START HOME -->
-<section id="home" class="">
+<!-- <section id="home" class="">
   <div class="container">
     <div class="row">
       <div class="col-lg-7 col-sm-12 col-xs-12">
         <div class="hero-text">
-          <!-- <h2 style="color: black">Lḕmoni Africa</h2> -->
-          <p style="color: black">
-            <!-- COLLABORATORS Let’s talk about the future of Crypto Exchange
-        community@lemonexchange.africa -->
-          </p>
-          <!-- <div class="home_btn">
-        <a
-          href="https://electroneum.com/overview-white-paper.pdf"
-          target="_blank"
-          class="btn_one wow bounceIn"
-          data-wow-delay=".6s"
-          >Whitepaper</a
-        >
-        <a
-          href="#about"
-          class="btn_two wow bounceIn"
-          data-wow-delay=".8s"
-          >learn More</a
-        >
-      </div> -->
+          <p style="color: black"></p>
         </div>
       </div>
-      <!--- END COL -->
-      <!-- <div class="col-lg-5 col-sm-12 col-xs-12 text-center">
-    <div class="buy-icons">
-      <div class="ca-starts-in">
-        <h3>1st stage ends in:</h3>
-        <div class="timer-area">
-          <div data-countdown="2021/10/30"></div>
-        </div>
-        <a href="#" class="btn_one">Buy token now</a>
-      </div>
-      <div class="payment_img">
-        <a href="#"
-          ><img src="/assets/img/visa.png" alt="logo-image"
-        /></a>
-        <a href="#"
-          ><img src="/assets/img/mastercard.png" alt="logo-image"
-        /></a>
-        <a href="#"
-          ><img src="/assets/img/bitcoin.png" alt="logo-image"
-        /></a>
-        <a href="#"
-          ><img src="/assets/img/ethereum.png" alt="logo-image"
-        /></a>
-      </div>
     </div>
-  </div> -->
-      <!--- END COL -->
-    </div>
-    <!--- END ROW -->
   </div>
-  <!--- END CONTAINER -->
-</section>
-<!-- END  HOME -->
+</section> -->
 
 <section id="about" class="why_choose_us section-padding">
   <div class="container">
@@ -546,3 +497,208 @@
   </section>
   <!-- END CONTACT -->
 </section>
+
+<nz-modal
+  [nzStyle]="{ top: '20px' }"
+  [(nzVisible)]="isVisible"
+  nzTitle="WAITLIST"
+  nzCentered
+  [nzWidth]="870"
+  (nzOnCancel)="handleCancel()"
+>
+  <div *nzModalContent>
+    <form nz-form [formGroup]="contactForm2">
+      <h3 style="text-align: center">
+        Join the waitlist and be part of the selected few to test the app
+      </h3>
+      <br /><br />
+      <div class="row">
+        <div class="offset-lg-1 col-lg-10 col-sm-12 col-xs-12 text-center">
+          <div class="contact">
+            <nz-spin
+              *ngIf="spinner"
+              nzSimple
+              [nzSize]="'large'"
+              style="
+                text-align: center;
+                border-radius: 4px;
+                margin-bottom: 20px;
+                padding: 30px 50px;
+                margin: 20px 0;
+              "
+            ></nz-spin>
+            <form [formGroup]="contactForm2" class="form" name="enq">
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <input
+                    formControlName="recipientName"
+                    type="text"
+                    name="name"
+                    class="form-control"
+                    placeholder="Name"
+                    required="required"
+                  />
+                  <em
+                    class="text-danger valiFontSizes"
+                    *ngIf="
+                      recipientNameError2 ||
+                      (contactForm2.get('recipientName')?.errors &&
+                        (contactForm2.get('recipientName')?.touched ||
+                          contactForm2.get('recipientName')?.dirty))
+                    "
+                  >
+                    <em
+                      *ngIf="
+                        contactForm2.get('recipientName')?.errors?.required
+                      "
+                      >Name is required</em
+                    >
+                  </em>
+                </div>
+                <div class="form-group col-md-6">
+                  <input
+                    name="text"
+                    formControlName="recipientPhoneNumber"
+                    maxlength="11"
+                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    class="form-control"
+                    placeholder="Phone Number"
+                    required="required"
+                  />
+                  <em
+                    class="text-danger valiFontSizes"
+                    *ngIf="
+                      phoneNumberError2 ||
+                      (contactForm2.get('recipientPhoneNumber')?.errors &&
+                        (contactForm2.get('recipientPhoneNumber')?.touched ||
+                          contactForm2.get('recipientPhoneNumber')?.dirty))
+                    "
+                  >
+                    <em
+                      *ngIf="
+                        contactForm2.get('recipientPhoneNumber')?.errors
+                          ?.required
+                      "
+                      >Phone Number is required</em
+                    >
+                    <!-- <em
+                *ngIf="
+                  contactForm.get('recipientPhoneNumber')?.errors
+                    ?.pattern
+                "
+                >Phone Number is invalid</em
+              > -->
+                    <em
+                      *ngIf="
+                        contactForm2.get('recipientPhoneNumber')?.errors
+                          ?.minlength
+                      "
+                      >Account Number shouldn't be less than 11 digits</em
+                    >
+                  </em>
+                </div>
+
+                <div class="form-group col-md-6">
+                  <input
+                    type="text"
+                    formControlName="recipientEmail"
+                    name="subject"
+                    class="form-control"
+                    placeholder="Email"
+                    required="required"
+                  />
+                  <em
+                    class="text-danger valiFontSizes"
+                    *ngIf="
+                      emailError2 ||
+                      (contactForm2.get('recipientEmail')?.errors &&
+                        (contactForm2.get('recipientEmail')?.touched ||
+                          contactForm2.get('recipientEmail')?.dirty))
+                    "
+                  >
+                    <em
+                      *ngIf="
+                        contactForm2.get('recipientEmail')?.errors?.required
+                      "
+                      >Email is required</em
+                    >
+                    <em
+                      *ngIf="
+                        contactForm2.get('recipientEmail')?.errors?.pattern
+                      "
+                      >Email is invalid</em
+                    >
+                  </em>
+                </div>
+                <div class="form-group col-md-6">
+                  <input
+                    type="text"
+                    [(ngModel)]="referalCode"
+                    formControlName="referredBy"
+                    name="subject"
+                    class="form-control"
+                    placeholder="Referral Code"
+                    required="required"
+                  />
+                  <em
+                    class="text-danger valiFontSizes"
+                    *ngIf="referalCodeError2"
+                  >
+                    <em *ngIf="referalCodeError2">InValid Referal Code</em>
+                  </em>
+                </div>
+                <!-- <div class="form-group col-md-12">
+            <textarea
+              rows="6"
+              name="message"
+              class="form-control"
+              placeholder="Your Message"
+              required="required"
+            ></textarea>
+          </div> -->
+                <div class="col-md-12 text-center">
+                  <button
+                    (click)="emailSender2()"
+                    type="submit"
+                    value="Send message"
+                    name="submit"
+                    id="submitButton"
+                    class="btn_one"
+                    title="Submit Your Message!"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- END COL  -->
+      </div>
+    </form>
+    <br />
+    <div class="row">
+      <div class="col-lg-12 col-sm-12 col-xs-12 text-center">
+        <div class="footer_logo">
+          <img
+            style="width: 120px; height: 120px"
+            src="/assets/0004.png"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *nzModalFooter>
+    <!-- <button nz-button nzType="default" (click)="handleCancel()">Cancel</button> -->
+    <!-- <button
+      nz-button
+      nzType="primary"
+      style="background: #57b952; border-color: #57b952"
+      [nzLoading]="isConfirmLoading"
+    >
+      Initiate Transaction
+    </button> -->
+  </div>
+</nz-modal>

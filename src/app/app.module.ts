@@ -50,6 +50,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppLayoutComponent } from './Component/app-layout/app-layout.component';
 import { CareerComponent } from './Component/career/career.component';
 
+import { CookieService } from 'ngx-cookie-service';
+
 registerLocaleData(en);
 
 @NgModule({
@@ -115,6 +117,7 @@ registerLocaleData(en);
     { provide: NZ_I18N, useValue: en_US },
     UseErrorInterceptor,
     { provide: 'canDeactivateLogin', useValue: checkToken },
+    CookieService,
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

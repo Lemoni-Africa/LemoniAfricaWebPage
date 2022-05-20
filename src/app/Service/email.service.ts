@@ -46,4 +46,8 @@ export class EmailService {
       `${environment.emailUrl}/api/v1/validate/referral-code/${code}`
     );
   }
+
+  liveCoin() {
+    return this.http.get(`${environment.liveCoinUrl}/api/livecoin`);
+  }
 }

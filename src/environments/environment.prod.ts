@@ -4,4 +4,5 @@ export const environment = {
   centralAdmin: 'http://10.0.33.12:8063',
   transaction: 'http://10.0.33.12:8212',
   emailUrl: 'https://genericapis.myapiservices.net',
+  liveCoinUrl: 'https://verifier-api-lemoni.herokuapp.com',
 };

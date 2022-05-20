@@ -11,6 +11,7 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { config } from 'src/app/config';
 import { EmailService } from 'src/app/Service/email.service';
 import { faBaby } from '@fortawesome/free-solid-svg-icons';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-dashboard',
@@ -37,8 +38,19 @@ export class DashboardComponent implements OnInit {
   phoneNumberError2: boolean = false;
   referalCodeError2: boolean = false;
   referalCode: any;
-  isVisible = true;
+  isVisible: boolean = true;
   isConfirmLoading = false;
+  checkerModal: any;
+  isVisited: any;
+  array = [
+    // 'At Lèmoni, we believe that everyone has a right to growth, and we are committed to help people make wealth. We encourage our people to take smart risks and welcome possible failures. This has enabled us to build a world-class platform that simplifies complex digital asset management services. Our people keep in mind what’s important: that even the littlest of investments can make a huge difference. This notion is evidently rooted in our product offerings, embedded in our culture and it empowers us to take a critical view of the "norms"',
+    'There is no inner circle. Everyone from the c-suite to interns share knowledge, information, and ideas. This is because transparency makes everyone think like founders and stay focused on our VIPs – our customers.',
+    'Everyone is challenged to own their jobs as every one’s input directly impacts the business, that way we learn faster.',
+    'We believe there is strength in diversity, this makes us committed to building a diverse and inclusive environment',
+    'We recognize our employees as people not items, so we enforce our work-life balance policies',
+    'We believe that personal and professional growth is as important as business growth, and we are committed to grooming our people to be the best version of themselves',
+  ];
+  coinResult: any = [];
   constructor(
     private scroller: ViewportScroller,
     private router: Router,
@@ -46,12 +58,15 @@ export class DashboardComponent implements OnInit {
     private _emailService: EmailService,
     private formBuilder: FormBuilder,
     private notification: NzNotificationService,
-    private ngxService: NgxUiLoaderService
+    private ngxService: NgxUiLoaderService,
+    private cookieService: CookieService
   ) {}
 
   ngOnInit(): void {
+    this.handleModal();
     this.getReferalCode();
     this.getYear();
+    this.getTopCoins();
     this.ngxService.startLoader('loader-01');
     // start foreground spinner of the loader "loader-01" with 'default' taskId
     // Stop the foreground loading after 5s
@@ -105,6 +120,35 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  getTopCoins() {
+    this._emailService.liveCoin().subscribe((res: any) => {
+      this.coinResult = res.data;
+    });
+  }
+
+  handleModal() {
+    this.isVisited = this.cookieService.get('isVisited');
+    const cookieExists: boolean = this.cookieService.check('isVisited');
+    console.log(this.isVisited);
+    if (!cookieExists) {
+      this.isVisible = true;
+      this.isVisited = 'shown';
+      console.log(this.isVisited);
+      this.cookieService.set('isVisited', this.isVisited, {
+        expires: 30,
+        sameSite: 'Lax',
+      });
+    } else {
+      this.isVisible = false;
+    }
+  }
+
+  close() {
+    this.checkerModal = sessionStorage.getItem('once');
+    if (this.checkerModal === '2') {
+      this.isVisible = false;
+    }
+  }
   //Get year
   getYear() {
     let myDate = new Date();
@@ -1702,6 +1746,7 @@ export class DashboardComponent implements OnInit {
               console.log(res);
               if (res.isSuccessful) {
                 this.spinner = false;
+                this.isVisible = false;
                 this.contactForm2.reset();
                 this.notification.success('Email', 'Email Sent!!!', {
                   nzPlacement: 'bottomRight',
