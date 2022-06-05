@@ -42,6 +42,7 @@ export class DashboardComponent implements OnInit {
   isConfirmLoading = false;
   checkerModal: any;
   isVisited: any;
+  spin=true
   array = [
     // 'At Lèmoni, we believe that everyone has a right to growth, and we are committed to help people make wealth. We encourage our people to take smart risks and welcome possible failures. This has enabled us to build a world-class platform that simplifies complex digital asset management services. Our people keep in mind what’s important: that even the littlest of investments can make a huge difference. This notion is evidently rooted in our product offerings, embedded in our culture and it empowers us to take a critical view of the "norms"',
     'There is no inner circle. Everyone from the c-suite to interns share knowledge, information, and ideas. This is because transparency makes everyone think like founders and stay focused on our VIPs – our customers.',
@@ -123,6 +124,11 @@ export class DashboardComponent implements OnInit {
   getTopCoins() {
     this._emailService.liveCoin().subscribe((res: any) => {
       this.coinResult = res.data;
+      const size = 5
+      this.coinResult = this.coinResult.slice(0, size)
+      this.spin = false
+    }, error => {
+      this.notification.error("Get Coin", "Error")
     });
   }
 
