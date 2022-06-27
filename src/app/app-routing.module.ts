@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { AuthGuard } from './authentication/service/auth.guard';
+import { AboutUsComponent } from './Component/about-us/about-us.component';
 import { AppLayoutComponent } from './Component/app-layout/app-layout.component';
 import { CareerComponent } from './Component/career/career.component';
 import { DashboardComponent } from './Component/dashboard/dashboard.component';
@@ -31,11 +32,10 @@ const routes: Routes = [
         component: CareerComponent,
         //canActivate: [AuthGuard]
       },
-      // {
-      //   path: 'our-services',
-      //   component: OurServicesComponent,
-      //   //canActivate: [AuthGuard]
-      // },
+      {
+        path: 'about-us',
+        component: AboutUsComponent,
+      },
       // {
       //   path: 'faqs',
       //   component: FaqComponent,

@@ -5,42 +5,7 @@ kajdljasdljl
 	
 <section id="about" style="margin-top: 50px" class="about_us section-padding">
   <div class="container">
-    	<!-- START LIVE MARKET -->
-      <div class="table-responsive">
-        <table class="table table-dark table-borderless table-hover">
-          <thead >
-            <tr >
-              <th scope="col">#</th>
-              <th scope="col">Currency</th>
-              <th scope="col">Price (USD)</th>
-              <th scope="col">Price (NGN)</th>
-            </tr>
-          </thead>
-          <div style="text-align: center;">
-              <nz-spin
-              *ngIf="spin"
-              nzSimple
-              [nzSize]="'large'"
-              style="
-                text-align: center;
-                border-radius: 4px;
-                margin-bottom: 20px;
-                padding: 30px 50px;
-                margin: 20px 0;
-              "
-            ></nz-spin>
-         
-          </div>
-          <tbody >
-            <tr *ngFor="let data of coinResult; let i = index">
-              <th scope="row">{{ i + 1}}</th>
-              <td><img style="width: 20px;" [src]="data.image" alt="" srcset="">  {{data.name}}</td>
-              <td>{{data.current_price_usd | currency:'USD':'symbol' }}</td>
-              <td>{{data.current_price_ngn | currency:'₦':'symbol' }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    
       
 		<!-- END LIVE MARKET -->
     <div class="row">
@@ -64,6 +29,12 @@ kajdljasdljl
             We strive to build products, design software and incubate new
             products, in a bid to pushing blockchain to reach its full potential
           </h4>
+          <!-- <h4 style="font-size: large; margin-bottom: 20px">
+            We are building a technology service that will enable our users to experience the humane touch of future finance. 
+            We are African born and registered in the US; we operate a fully remote structure which helps us ensure that there is never a down-time in our service.
+            We are committed to making meaningful connections which is evident in our passion to support our team and customers. Rest assured of a quality service, secure, swift, and seamless product.
+          </h4> -->
+   
           <!-- 
         <div class="about_btn">
           <a
@@ -89,14 +60,14 @@ kajdljasdljl
         data-wow-offset="0"
       >
       <br><br><br>
-        <div class="about-img">
+        <!-- <div class="about-img">
           <img
             style="margin-bottom: 50px"
             src="/assets/own2.png"
             class="item-bounce img-fluid"
             alt=""
           />
-        </div>
+        </div> -->
       </div>
       <!--- END COL -->
     </div>
@@ -407,7 +378,7 @@ kajdljasdljl
                   <em
                     class="text-danger valiFontSizes"
                     *ngIf="
-                      recipientNameError ||
+                      recipientNameError || 
                       (contactForm.get('recipientName')?.errors &&
                         (contactForm.get('recipientName')?.touched ||
                           contactForm.get('recipientName')?.dirty))
@@ -543,6 +514,57 @@ kajdljasdljl
   </section>
   <!-- END CONTACT -->
 </section>
+<section id="about" class="why_choose_us section-padding">
+  <div class="container">
+    <div class="section-title text-center">
+      <h2>Today's Market</h2>
+      <span></span>
+      <!-- <p>
+        Are you looking for an easier way to buy and exchange cryptocurrency?
+        You're in the right Place!
+      </p> -->
+    </div>
+    	<!-- START LIVE MARKET -->
+      <div class="table-responsive">
+        <table class="table table-dark table-borderless table-hover">
+          <thead >
+            <tr >
+              <th scope="col">#</th>
+              <th scope="col">Currency</th>
+              <th scope="col">Price (USD)</th>
+              <th scope="col">Price (NGN)</th>
+            </tr>
+          </thead>
+          <div style="text-align: center;">
+              <nz-spin
+              *ngIf="spin"
+              nzSimple
+              [nzSize]="'large'"
+              style="
+                text-align: center;
+                border-radius: 4px;
+                margin-bottom: 20px;
+                padding: 30px 50px;
+                margin: 20px 0;
+              "
+            ></nz-spin>
+         
+          </div>
+          <tbody >
+            <tr *ngFor="let data of coinResult; let i = index">
+              <th scope="row">{{ i + 1}}</th>
+              <td><img style="width: 20px;" [src]="data.image" alt="" srcset="">  {{data.name}}</td>
+              <td>{{data.current_price_usd | currency:'USD':'symbol' }}</td>
+              <td>{{data.current_price_ngn | currency:'₦':'symbol' }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    
+    <!-- END ROW -->
+  </div>
+  <!-- END CONTAINER -->
+</section>
 
 <div style="margin-top: 200px" class="address_area">
   <div class="container">
@@ -574,7 +596,7 @@ kajdljasdljl
             <span class="ti-email"></span>
           </div>
           <h4>Email</h4>
-          <p>support@lemoniafrica.com</p>
+          <!-- <p>support@lemoniafrica.com</p> -->
           <p>info@lemoniafrica.com</p>
         </div>
       </div>

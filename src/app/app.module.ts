@@ -51,6 +51,7 @@ import { AppLayoutComponent } from './Component/app-layout/app-layout.component'
 import { CareerComponent } from './Component/career/career.component';
 
 import { CookieService } from 'ngx-cookie-service';
+import { AboutUsComponent } from './Component/about-us/about-us.component';
 
 registerLocaleData(en);
 
@@ -61,6 +62,7 @@ registerLocaleData(en);
     DashboardComponent,
     AppLayoutComponent,
     CareerComponent,
+    AboutUsComponent,
   ],
   imports: [
     BrowserModule,
